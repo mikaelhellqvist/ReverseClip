@@ -1,0 +1,449 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2A676ED315E18CDF00F3E8BD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A676ED215E18CDF00F3E8BD /* UIKit.framework */; };
+		2A676ED515E18CDF00F3E8BD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A676ED415E18CDF00F3E8BD /* Foundation.framework */; };
+		2A676ED715E18CDF00F3E8BD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A676ED615E18CDF00F3E8BD /* CoreGraphics.framework */; };
+		2A676EDD15E18CDF00F3E8BD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A676EDB15E18CDF00F3E8BD /* InfoPlist.strings */; };
+		2A676EDF15E18CDF00F3E8BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A676EDE15E18CDF00F3E8BD /* main.m */; };
+		2A676EE315E18CDF00F3E8BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A676EE215E18CDF00F3E8BD /* AppDelegate.m */; };
+		2A676EE615E18CDF00F3E8BD /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A676EE415E18CDF00F3E8BD /* MainStoryboard.storyboard */; };
+		2A676EE915E18CDF00F3E8BD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A676EE815E18CDF00F3E8BD /* ViewController.m */; };
+		2A676EF115E18CE000F3E8BD /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A676EF015E18CE000F3E8BD /* SenTestingKit.framework */; };
+		2A676EF215E18CE000F3E8BD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A676ED215E18CDF00F3E8BD /* UIKit.framework */; };
+		2A676EF315E18CE000F3E8BD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A676ED415E18CDF00F3E8BD /* Foundation.framework */; };
+		2A676EFB15E18CE000F3E8BD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A676EF915E18CE000F3E8BD /* InfoPlist.strings */; };
+		2A676EFE15E18CE000F3E8BD /* ReverseClipTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A676EFD15E18CE000F3E8BD /* ReverseClipTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2A676EF415E18CE000F3E8BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A676EC515E18CDF00F3E8BD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A676ECD15E18CDF00F3E8BD;
+			remoteInfo = ReverseClip;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2A676ECE15E18CDF00F3E8BD /* ReverseClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReverseClip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A676ED215E18CDF00F3E8BD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2A676ED415E18CDF00F3E8BD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2A676ED615E18CDF00F3E8BD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2A676EDA15E18CDF00F3E8BD /* ReverseClip-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ReverseClip-Info.plist"; sourceTree = "<group>"; };
+		2A676EDC15E18CDF00F3E8BD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2A676EDE15E18CDF00F3E8BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2A676EE015E18CDF00F3E8BD /* ReverseClip-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReverseClip-Prefix.pch"; sourceTree = "<group>"; };
+		2A676EE115E18CDF00F3E8BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2A676EE215E18CDF00F3E8BD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2A676EE515E18CDF00F3E8BD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		2A676EE715E18CDF00F3E8BD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2A676EE815E18CDF00F3E8BD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2A676EEF15E18CE000F3E8BD /* ReverseClipTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReverseClipTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A676EF015E18CE000F3E8BD /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		2A676EF815E18CE000F3E8BD /* ReverseClipTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ReverseClipTests-Info.plist"; sourceTree = "<group>"; };
+		2A676EFA15E18CE000F3E8BD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2A676EFC15E18CE000F3E8BD /* ReverseClipTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReverseClipTests.h; sourceTree = "<group>"; };
+		2A676EFD15E18CE000F3E8BD /* ReverseClipTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReverseClipTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2A676ECB15E18CDF00F3E8BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A676ED315E18CDF00F3E8BD /* UIKit.framework in Frameworks */,
+				2A676ED515E18CDF00F3E8BD /* Foundation.framework in Frameworks */,
+				2A676ED715E18CDF00F3E8BD /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A676EEB15E18CE000F3E8BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A676EF115E18CE000F3E8BD /* SenTestingKit.framework in Frameworks */,
+				2A676EF215E18CE000F3E8BD /* UIKit.framework in Frameworks */,
+				2A676EF315E18CE000F3E8BD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2A676EC315E18CDF00F3E8BD = {
+			isa = PBXGroup;
+			children = (
+				2A676ED815E18CDF00F3E8BD /* ReverseClip */,
+				2A676EF615E18CE000F3E8BD /* ReverseClipTests */,
+				2A676ED115E18CDF00F3E8BD /* Frameworks */,
+				2A676ECF15E18CDF00F3E8BD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2A676ECF15E18CDF00F3E8BD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2A676ECE15E18CDF00F3E8BD /* ReverseClip.app */,
+				2A676EEF15E18CE000F3E8BD /* ReverseClipTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A676ED115E18CDF00F3E8BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A676ED215E18CDF00F3E8BD /* UIKit.framework */,
+				2A676ED415E18CDF00F3E8BD /* Foundation.framework */,
+				2A676ED615E18CDF00F3E8BD /* CoreGraphics.framework */,
+				2A676EF015E18CE000F3E8BD /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2A676ED815E18CDF00F3E8BD /* ReverseClip */ = {
+			isa = PBXGroup;
+			children = (
+				2A676EE115E18CDF00F3E8BD /* AppDelegate.h */,
+				2A676EE215E18CDF00F3E8BD /* AppDelegate.m */,
+				2A676EE415E18CDF00F3E8BD /* MainStoryboard.storyboard */,
+				2A676EE715E18CDF00F3E8BD /* ViewController.h */,
+				2A676EE815E18CDF00F3E8BD /* ViewController.m */,
+				2A676ED915E18CDF00F3E8BD /* Supporting Files */,
+			);
+			path = ReverseClip;
+			sourceTree = "<group>";
+		};
+		2A676ED915E18CDF00F3E8BD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2A676EDA15E18CDF00F3E8BD /* ReverseClip-Info.plist */,
+				2A676EDB15E18CDF00F3E8BD /* InfoPlist.strings */,
+				2A676EDE15E18CDF00F3E8BD /* main.m */,
+				2A676EE015E18CDF00F3E8BD /* ReverseClip-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2A676EF615E18CE000F3E8BD /* ReverseClipTests */ = {
+			isa = PBXGroup;
+			children = (
+				2A676EFC15E18CE000F3E8BD /* ReverseClipTests.h */,
+				2A676EFD15E18CE000F3E8BD /* ReverseClipTests.m */,
+				2A676EF715E18CE000F3E8BD /* Supporting Files */,
+			);
+			path = ReverseClipTests;
+			sourceTree = "<group>";
+		};
+		2A676EF715E18CE000F3E8BD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2A676EF815E18CE000F3E8BD /* ReverseClipTests-Info.plist */,
+				2A676EF915E18CE000F3E8BD /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2A676ECD15E18CDF00F3E8BD /* ReverseClip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A676F0115E18CE000F3E8BD /* Build configuration list for PBXNativeTarget "ReverseClip" */;
+			buildPhases = (
+				2A676ECA15E18CDF00F3E8BD /* Sources */,
+				2A676ECB15E18CDF00F3E8BD /* Frameworks */,
+				2A676ECC15E18CDF00F3E8BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ReverseClip;
+			productName = ReverseClip;
+			productReference = 2A676ECE15E18CDF00F3E8BD /* ReverseClip.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2A676EEE15E18CE000F3E8BD /* ReverseClipTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A676F0415E18CE000F3E8BD /* Build configuration list for PBXNativeTarget "ReverseClipTests" */;
+			buildPhases = (
+				2A676EEA15E18CE000F3E8BD /* Sources */,
+				2A676EEB15E18CE000F3E8BD /* Frameworks */,
+				2A676EEC15E18CE000F3E8BD /* Resources */,
+				2A676EED15E18CE000F3E8BD /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2A676EF515E18CE000F3E8BD /* PBXTargetDependency */,
+			);
+			name = ReverseClipTests;
+			productName = ReverseClipTests;
+			productReference = 2A676EEF15E18CE000F3E8BD /* ReverseClipTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2A676EC515E18CDF00F3E8BD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Mikael Hellqvist";
+			};
+			buildConfigurationList = 2A676EC815E18CDF00F3E8BD /* Build configuration list for PBXProject "ReverseClip" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2A676EC315E18CDF00F3E8BD;
+			productRefGroup = 2A676ECF15E18CDF00F3E8BD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2A676ECD15E18CDF00F3E8BD /* ReverseClip */,
+				2A676EEE15E18CE000F3E8BD /* ReverseClipTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2A676ECC15E18CDF00F3E8BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A676EDD15E18CDF00F3E8BD /* InfoPlist.strings in Resources */,
+				2A676EE615E18CDF00F3E8BD /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A676EEC15E18CE000F3E8BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A676EFB15E18CE000F3E8BD /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2A676EED15E18CE000F3E8BD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2A676ECA15E18CDF00F3E8BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A676EDF15E18CDF00F3E8BD /* main.m in Sources */,
+				2A676EE315E18CDF00F3E8BD /* AppDelegate.m in Sources */,
+				2A676EE915E18CDF00F3E8BD /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A676EEA15E18CE000F3E8BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A676EFE15E18CE000F3E8BD /* ReverseClipTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2A676EF515E18CE000F3E8BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2A676ECD15E18CDF00F3E8BD /* ReverseClip */;
+			targetProxy = 2A676EF415E18CE000F3E8BD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2A676EDB15E18CDF00F3E8BD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A676EDC15E18CDF00F3E8BD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2A676EE415E18CDF00F3E8BD /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A676EE515E18CDF00F3E8BD /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		2A676EF915E18CE000F3E8BD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A676EFA15E18CE000F3E8BD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2A676EFF15E18CE000F3E8BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2A676F0015E18CE000F3E8BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2A676F0215E18CE000F3E8BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ReverseClip/ReverseClip-Prefix.pch";
+				INFOPLIST_FILE = "ReverseClip/ReverseClip-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2A676F0315E18CE000F3E8BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ReverseClip/ReverseClip-Prefix.pch";
+				INFOPLIST_FILE = "ReverseClip/ReverseClip-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		2A676F0515E18CE000F3E8BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ReverseClip.app/ReverseClip";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ReverseClip/ReverseClip-Prefix.pch";
+				INFOPLIST_FILE = "ReverseClipTests/ReverseClipTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		2A676F0615E18CE000F3E8BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ReverseClip.app/ReverseClip";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ReverseClip/ReverseClip-Prefix.pch";
+				INFOPLIST_FILE = "ReverseClipTests/ReverseClipTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2A676EC815E18CDF00F3E8BD /* Build configuration list for PBXProject "ReverseClip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A676EFF15E18CE000F3E8BD /* Debug */,
+				2A676F0015E18CE000F3E8BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A676F0115E18CE000F3E8BD /* Build configuration list for PBXNativeTarget "ReverseClip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A676F0215E18CE000F3E8BD /* Debug */,
+				2A676F0315E18CE000F3E8BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2A676F0415E18CE000F3E8BD /* Build configuration list for PBXNativeTarget "ReverseClipTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A676F0515E18CE000F3E8BD /* Debug */,
+				2A676F0615E18CE000F3E8BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2A676EC515E18CDF00F3E8BD /* Project object */;
+}
