@@ -20,6 +20,16 @@
 		2A676EF315E18CE000F3E8BD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A676ED415E18CDF00F3E8BD /* Foundation.framework */; };
 		2A676EFB15E18CE000F3E8BD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A676EF915E18CE000F3E8BD /* InfoPlist.strings */; };
 		2A676EFE15E18CE000F3E8BD /* ReverseClipTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A676EFD15E18CE000F3E8BD /* ReverseClipTests.m */; };
+		2A676F1315E18CF100F3E8BD /* RCComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A676F0A15E18CF100F3E8BD /* RCComposer.m */; };
+		2A676F1415E18CF100F3E8BD /* RCExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A676F0C15E18CF100F3E8BD /* RCExporter.m */; };
+		2A676F1515E18CF100F3E8BD /* RCFileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A676F0E15E18CF100F3E8BD /* RCFileHandler.m */; };
+		2A676F1615E18CF100F3E8BD /* RCImageSequencer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A676F1015E18CF100F3E8BD /* RCImageSequencer.m */; };
+		2A676F1715E18CF100F3E8BD /* RCToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A676F1215E18CF100F3E8BD /* RCToolbox.m */; };
+		2A676F1915E18D0300F3E8BD /* IMG_2262.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 2A676F1815E18D0300F3E8BD /* IMG_2262.MOV */; };
+		2A676F1C15E18E6200F3E8BD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A676F1B15E18E6200F3E8BD /* AVFoundation.framework */; };
+		2A676F1E15E18E6700F3E8BD /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A676F1D15E18E6700F3E8BD /* CoreMedia.framework */; };
+		2A676F2015E18E7900F3E8BD /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A676F1F15E18E7900F3E8BD /* CoreVideo.framework */; };
+		2A676F2215E18EEF00F3E8BD /* ReadMe.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A676F2115E18EEF00F3E8BD /* ReadMe.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +62,22 @@
 		2A676EFA15E18CE000F3E8BD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2A676EFC15E18CE000F3E8BD /* ReverseClipTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReverseClipTests.h; sourceTree = "<group>"; };
 		2A676EFD15E18CE000F3E8BD /* ReverseClipTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReverseClipTests.m; sourceTree = "<group>"; };
+		2A676F0815E18CF100F3E8BD /* Enums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
+		2A676F0915E18CF100F3E8BD /* RCComposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCComposer.h; sourceTree = "<group>"; };
+		2A676F0A15E18CF100F3E8BD /* RCComposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCComposer.m; sourceTree = "<group>"; };
+		2A676F0B15E18CF100F3E8BD /* RCExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCExporter.h; sourceTree = "<group>"; };
+		2A676F0C15E18CF100F3E8BD /* RCExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCExporter.m; sourceTree = "<group>"; };
+		2A676F0D15E18CF100F3E8BD /* RCFileHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCFileHandler.h; sourceTree = "<group>"; };
+		2A676F0E15E18CF100F3E8BD /* RCFileHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCFileHandler.m; sourceTree = "<group>"; };
+		2A676F0F15E18CF100F3E8BD /* RCImageSequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCImageSequencer.h; sourceTree = "<group>"; };
+		2A676F1015E18CF100F3E8BD /* RCImageSequencer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCImageSequencer.m; sourceTree = "<group>"; };
+		2A676F1115E18CF100F3E8BD /* RCToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCToolbox.h; sourceTree = "<group>"; };
+		2A676F1215E18CF100F3E8BD /* RCToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCToolbox.m; sourceTree = "<group>"; };
+		2A676F1815E18D0300F3E8BD /* IMG_2262.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = IMG_2262.MOV; sourceTree = "<group>"; };
+		2A676F1B15E18E6200F3E8BD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2A676F1D15E18E6700F3E8BD /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		2A676F1F15E18E7900F3E8BD /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		2A676F2115E18EEF00F3E8BD /* ReadMe.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = ReadMe.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +85,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A676F2015E18E7900F3E8BD /* CoreVideo.framework in Frameworks */,
+				2A676F1E15E18E6700F3E8BD /* CoreMedia.framework in Frameworks */,
+				2A676F1C15E18E6200F3E8BD /* AVFoundation.framework in Frameworks */,
 				2A676ED315E18CDF00F3E8BD /* UIKit.framework in Frameworks */,
 				2A676ED515E18CDF00F3E8BD /* Foundation.framework in Frameworks */,
 				2A676ED715E18CDF00F3E8BD /* CoreGraphics.framework in Frameworks */,
@@ -100,6 +129,9 @@
 		2A676ED115E18CDF00F3E8BD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2A676F1F15E18E7900F3E8BD /* CoreVideo.framework */,
+				2A676F1D15E18E6700F3E8BD /* CoreMedia.framework */,
+				2A676F1B15E18E6200F3E8BD /* AVFoundation.framework */,
 				2A676ED215E18CDF00F3E8BD /* UIKit.framework */,
 				2A676ED415E18CDF00F3E8BD /* Foundation.framework */,
 				2A676ED615E18CDF00F3E8BD /* CoreGraphics.framework */,
@@ -111,11 +143,14 @@
 		2A676ED815E18CDF00F3E8BD /* ReverseClip */ = {
 			isa = PBXGroup;
 			children = (
+				2A676F0715E18CF100F3E8BD /* RCToolbox */,
 				2A676EE115E18CDF00F3E8BD /* AppDelegate.h */,
 				2A676EE215E18CDF00F3E8BD /* AppDelegate.m */,
 				2A676EE415E18CDF00F3E8BD /* MainStoryboard.storyboard */,
 				2A676EE715E18CDF00F3E8BD /* ViewController.h */,
 				2A676EE815E18CDF00F3E8BD /* ViewController.m */,
+				2A676F2115E18EEF00F3E8BD /* ReadMe.rtf */,
+				2A676F1A15E18D1100F3E8BD /* Recources */,
 				2A676ED915E18CDF00F3E8BD /* Supporting Files */,
 			);
 			path = ReverseClip;
@@ -149,6 +184,32 @@
 				2A676EF915E18CE000F3E8BD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2A676F0715E18CF100F3E8BD /* RCToolbox */ = {
+			isa = PBXGroup;
+			children = (
+				2A676F0815E18CF100F3E8BD /* Enums.h */,
+				2A676F0915E18CF100F3E8BD /* RCComposer.h */,
+				2A676F0A15E18CF100F3E8BD /* RCComposer.m */,
+				2A676F0B15E18CF100F3E8BD /* RCExporter.h */,
+				2A676F0C15E18CF100F3E8BD /* RCExporter.m */,
+				2A676F0D15E18CF100F3E8BD /* RCFileHandler.h */,
+				2A676F0E15E18CF100F3E8BD /* RCFileHandler.m */,
+				2A676F0F15E18CF100F3E8BD /* RCImageSequencer.h */,
+				2A676F1015E18CF100F3E8BD /* RCImageSequencer.m */,
+				2A676F1115E18CF100F3E8BD /* RCToolbox.h */,
+				2A676F1215E18CF100F3E8BD /* RCToolbox.m */,
+			);
+			path = RCToolbox;
+			sourceTree = "<group>";
+		};
+		2A676F1A15E18D1100F3E8BD /* Recources */ = {
+			isa = PBXGroup;
+			children = (
+				2A676F1815E18D0300F3E8BD /* IMG_2262.MOV */,
+			);
+			name = Recources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +285,8 @@
 			files = (
 				2A676EDD15E18CDF00F3E8BD /* InfoPlist.strings in Resources */,
 				2A676EE615E18CDF00F3E8BD /* MainStoryboard.storyboard in Resources */,
+				2A676F1915E18D0300F3E8BD /* IMG_2262.MOV in Resources */,
+				2A676F2215E18EEF00F3E8BD /* ReadMe.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +324,11 @@
 				2A676EDF15E18CDF00F3E8BD /* main.m in Sources */,
 				2A676EE315E18CDF00F3E8BD /* AppDelegate.m in Sources */,
 				2A676EE915E18CDF00F3E8BD /* ViewController.m in Sources */,
+				2A676F1315E18CF100F3E8BD /* RCComposer.m in Sources */,
+				2A676F1415E18CF100F3E8BD /* RCExporter.m in Sources */,
+				2A676F1515E18CF100F3E8BD /* RCFileHandler.m in Sources */,
+				2A676F1615E18CF100F3E8BD /* RCImageSequencer.m in Sources */,
+				2A676F1715E18CF100F3E8BD /* RCToolbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

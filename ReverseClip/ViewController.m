@@ -7,6 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "RCToolbox.h"
+
+#define EXPORT_NAME @"Exported.mov"
 
 @interface ViewController ()
 
@@ -31,4 +34,47 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+#pragma mark - Calls to the tools
+
+- (void) exportFinishedMovie {
+    
+    RCExporter *exporterTool = [[RCToolbox sharedToolbox] exporterTool];
+    RCComposer *compositionTool = [[RCToolbox sharedToolbox] compositionTool];
+    [exporterTool exportCompositionWithAsset:(AVURLAsset*)compositionTool.composition exportName:EXPORT_NAME isForImageSequence:NO];
+    
+}
+
+-(void) preExportForImageSequence:(AVURLAsset *)_asset {
+    
+    RCComposer *compositionTool = [[RCToolbox sharedToolbox] compositionTool];
+    [compositionTool addToCompositionWithAsset:(AVURLAsset*)_asset timeRangeSpeed:kTimeRangeSlowMotion inSeconds:0.0 outSeconds:2.0 isForImageSequence:YES speed:kTimeRangeSlowMotion];
+    
+}
+
+-(void) sendToCompositionWithAsset:(AVAsset *)_asset {
+    
+    RCComposer *compositionTool = [[RCToolbox sharedToolbox] compositionTool];
+    [compositionTool addToCompositionWithAsset:(AVURLAsset*)_asset timeRangeSpeed:kTimeRangeNormal inSeconds:0.0 outSeconds:2.0 isForImageSequence:NO speed:kTimeRangeSlowMotion];
+    
+}
+
+
+-(void) createReverseClip {
+    RCFileHandler *filehandler = [[RCToolbox sharedToolbox] fileHandler];
+    AVURLAsset *myAsset = [filehandler getAssetURLFromBundleWithFileName:@"IMG_2262"];
+    [self preExportForImageSequence:myAsset];
+    
+    /*
+     ImageSequencer *imageSequencerTool = [[Toolbox sharedToolbox] imageSequencerTool];
+     [imageSequencerTool createImageSequenceWithAsset:myAsset];
+     */
+}
+
+
+#pragma mark - Buttons
+
+- (IBAction)startButtonPressed:(id)sender {
+    [self createReverseClip];
+}
 @end
+
