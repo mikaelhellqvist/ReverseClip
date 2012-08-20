@@ -28,4 +28,4 @@ You might want to comment out  NSLog(@"Percentage done: %f",percentageDone); in 
 
 ##How does it work?
 
-![FlowChart](ReverseClip%20FlowChart.png)
+![FlowChart](https://raw.github.com/mikaelhellqvist/ReverseClip/master/ReverseClip%20FlowChart.png)
