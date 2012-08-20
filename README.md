@@ -10,17 +10,21 @@ Just copy the folder “RCToolbox” to your project.
 Import the class “RCToolbox.h” in your class.
 
 	    RCFileHandler *filehandler = [[RCToolbox sharedToolbox] fileHandler];
-	    AVURLAsset *myAsset = [filehandler getAssetURLFromBundleWithFileName:@“[name of your asset]”];
+	    AVURLAsset *myAsset = [filehandler getAssetURLFromBundleWithFileName:@“[asset]”];
 	    [self preExportForImageSequence:myAsset];
-	    
-   
 
-	 -(void) preExportForImageSequence:(AVURLAsset *)_asset {
-	    
-	    RCComposer *compositionTool = [[RCToolbox sharedToolbox] compositionTool];
+	 -(void) preExportForImageSequence:(AVURLAsset *)_asset
+	  {
+	 	    RCComposer *compositionTool = [[RCToolbox sharedToolbox] compositionTool];
 	    [compositionTool addToCompositionWithAsset:(AVURLAsset*)_asset timeRangeSpeed:kTimeRangeSlowMotion inSeconds:0.0 outSeconds:2.0 isForImageSequence:YES speed:kTimeRangeSlowMotion];
-	    
 	}
+
+In this case you will probably use CMTimeZero for inSeconds and asset.duration for outSeconds.
+
+##Tweak it
+To change the width and height of the clip, change the constants in RCImageSequencer.m 
+
+You might want to comment out  NSLog(@"Percentage done: %f",percentageDone); in the same class.
 
 ##How does it work?
 
