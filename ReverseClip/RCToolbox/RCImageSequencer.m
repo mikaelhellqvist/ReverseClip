@@ -74,10 +74,13 @@
                                              if (result == AVAssetImageGeneratorSucceeded) {
                                                  [imageSequence addObject:(__bridge id)image];
                                                  
-                                                 percentageDone = .8f * ((Float32)[imageSequence count] / (Float32)[times count]);
+                                                 percentageDone = ((Float32)[imageSequence count] / (Float32)[times count])*100;
                                                  if(delegate != nil)
                                                      if([delegate respondsToSelector:@selector(imageSequencerProgress:)])
                                                          [delegate imageSequencerProgress:percentageDone];
+                                                 
+                                                 NSLog(@"Percentage done: %f",percentageDone);
+                                                 
                                                  if ([imageSequence count] == [times count]) {
                                                      [self startWritingTheSamples];
                                                  }

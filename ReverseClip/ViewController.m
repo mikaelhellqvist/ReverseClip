@@ -63,11 +63,6 @@
     RCFileHandler *filehandler = [[RCToolbox sharedToolbox] fileHandler];
     AVURLAsset *myAsset = [filehandler getAssetURLFromBundleWithFileName:@"IMG_2262"];
     [self preExportForImageSequence:myAsset];
-    
-    /*
-     ImageSequencer *imageSequencerTool = [[Toolbox sharedToolbox] imageSequencerTool];
-     [imageSequencerTool createImageSequenceWithAsset:myAsset];
-     */
 }
 
 
