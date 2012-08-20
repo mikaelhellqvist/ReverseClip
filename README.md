@@ -2,7 +2,7 @@
 ## What it does?
 Takes a video asset and reverses it, puts it in a AVMutableComposition and exports it as a .mov file. 
 
-The exported file becomes available in iTunes under File Sharing ( [iOS Device/Apps/ReverseClip).
+The exported file becomes available in iTunes under File Sharing ( [iOS Device]/Apps/ReverseClip).
 
 ##How to implement?
 Just copy the folder “RCToolbox” to your project.
@@ -28,4 +28,4 @@ You might want to comment out  NSLog(@"Percentage done: %f",percentageDone); in 
 
 ##How does it work?
 
-![Flowchart](file://localhost/Users/mikaelht/Desktop/ReverseClip%20FlowChart.png)
+![FlowChart](ReverseClip%20FlowChart.png)
