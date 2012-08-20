@@ -1,4 +1,7 @@
-
+// Please contact me if you use this code. Would be glad to know if it has helped you anything :)
+// mikaelhellqvist@gmail.com
+// Thanks,
+// Mikael Hellqvist
 
 #import "RCImageSequencer.h"
 #import <CoreMedia/CoreMedia.h>

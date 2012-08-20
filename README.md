@@ -1,4 +1,9 @@
 # ReverseClip
+##Contact
+Please contact me if you use this code. Would be glad to know if it has helped you anything :)
+mikaelhellqvist@gmail.com
+Mikael Hellqvist
+
 ## What it does?
 Takes a video asset and reverses it, puts it in a AVMutableComposition and exports it as a .mov file. 
 
