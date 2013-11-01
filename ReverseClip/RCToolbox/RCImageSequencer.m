@@ -8,7 +8,7 @@
 #import "RCToolbox.h"
 
 #define FRAME_WIDTH 640
-#define FRAME_HEIGHT 480
+#define FRAME_HEIGHT 360
 #define FRAMES_PER_SEC 25
 #define FRAME_SCALE 600
 #define OUTPUT_FILE_NAME @"imageSequence_reverse.mov"

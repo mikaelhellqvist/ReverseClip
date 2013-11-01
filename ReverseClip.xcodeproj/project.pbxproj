@@ -502,6 +502,7 @@
 				2A676F0315E18CE000F3E8BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2A676F0415E18CE000F3E8BD /* Build configuration list for PBXNativeTarget "ReverseClipTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +511,7 @@
 				2A676F0615E18CE000F3E8BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
