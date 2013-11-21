@@ -11,86 +11,77 @@
 #define FRAME_HEIGHT 360
 #define FRAMES_PER_SEC 25
 #define FRAME_SCALE 600
-#define OUTPUT_FILE_NAME @"imageSequence_reverse.mov"
+
+@interface RCImageSequencer ()
+@property AVAssetImageGenerator *imageGenerator;
+@property AVAssetWriter *assetWriter;
+@property AVAssetWriterInput *assetWriterInput;
+@property AVAssetWriterInputPixelBufferAdaptor *assetWriterPixelBufferAdaptor;
+@property CFAbsoluteTime firstFrameWallClockTime;
+@property BOOL firstImageSent;
+@property float percentageDone;
+@property NSMutableArray *imageSequence;
+@property Float64 fakeTimeElapsed;
+@property Float64 incrementTime;
+@property NSString *currentFileName;
+@end
 
 @implementation RCImageSequencer
 
-@synthesize imageGenerator;
-@synthesize delegate = _delegate;
-
--(id) init {
-    if((self = [super init])){
-        
-        incrementTime = (Float64)1/FRAMES_PER_SEC;
-        fakeTimeElapsed = 0.0;
-        
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _incrementTime = (Float64)1/FRAMES_PER_SEC;
+        _fakeTimeElapsed = 0.0;
     }
-    
     return self;
 }
 
-- (void)createImageSequenceWithAsset:(AVURLAsset *)asset toFileName:(NSString *)fileName {
+-(void) createImageSequenceWithAsset:(AVURLAsset*)urlAsset {
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancel:) name:UIApplicationDidEnterBackgroundNotification object:nil];
-    currentFileName = [NSString stringWithString:fileName];
+    _percentageDone = 0;
+    _fakeTimeElapsed = 0.0;
+    _imageSequence = [[NSMutableArray alloc] init];
     
-    [self createImageSequenceWithAsset:asset];
-    
-}
-
--(void) createImageSequenceWithAsset:(AVURLAsset*)asset {
-
-    percentageDone = 0;
-    fakeTimeElapsed = 0.0;
-    imageSequence = [[NSMutableArray alloc] init];
-    
-    AVURLAsset *myAsset = asset;
+    AVURLAsset *myAsset = urlAsset;
     
     self.imageGenerator = [AVAssetImageGenerator assetImageGeneratorWithAsset:myAsset];
-    imageGenerator.maximumSize = CGSizeMake(FRAME_WIDTH, FRAME_HEIGHT);
+    _imageGenerator.maximumSize = CGSizeMake(FRAME_WIDTH, FRAME_HEIGHT);
     Float64 durationSeconds = CMTimeGetSeconds([myAsset duration]);
     
-    Float64 clipTime = incrementTime;
+    Float64 clipTime = _incrementTime;
     NSMutableArray *times = [[NSMutableArray alloc] init];
     
     while(clipTime < durationSeconds) {
-    
         CMTime frameTime = CMTimeMakeWithSeconds(durationSeconds - clipTime, FRAME_SCALE);
         NSValue *frameTimeValue = [NSValue valueWithCMTime:frameTime];
         
         [times addObject:frameTimeValue];
         
-        clipTime += incrementTime;
+        clipTime += _incrementTime;
     };
-    
-    NSLog(@"Frames to capture, %i", [times count]);
-    
-    //imageGenerator.apertureMode = AVAssetImageGeneratorApertureModeEncodedPixels;
-    [imageGenerator generateCGImagesAsynchronouslyForTimes:times
+
+    [_imageGenerator generateCGImagesAsynchronouslyForTimes:times
                                          completionHandler:^(CMTime requestedTime, CGImageRef image, CMTime actualTime,
                                                              AVAssetImageGeneratorResult result, NSError *error) {
                                              
-                                             NSString *requestedTimeString = (__bridge NSString *)CMTimeCopyDescription(NULL, requestedTime);
-                                             NSString *actualTimeString = (__bridge NSString *)CMTimeCopyDescription(NULL, actualTime);
-   
-                                             
                                              if (result == AVAssetImageGeneratorSucceeded) {
-                                                 [imageSequence addObject:(__bridge id)image];
+                                                 [_imageSequence addObject:(__bridge id)image];
                                                  
-                                                 percentageDone = ((Float32)[imageSequence count] / (Float32)[times count])*100;
-                                                 if(delegate != nil)
-                                                     if([delegate respondsToSelector:@selector(imageSequencerProgress:)])
-                                                         [delegate imageSequencerProgress:percentageDone];
-                                                 
-                                                 NSLog(@"Percentage done: %f",percentageDone);
-                                                 
-                                                 if ([imageSequence count] == [times count]) {
+                                                 _percentageDone = ((Float32)[_imageSequence count] / (Float32)[times count])*100;
+
+                                                 if([_delegate respondsToSelector:@selector(imageSequencerProgress:)]){
+                                                     [_delegate imageSequencerProgress:_percentageDone];
+                                                 }
+
+                                                 if ([_imageSequence count] == [times count]) {
                                                      [self startWritingTheSamples];
                                                  }
                                              }
                                              
                                              if (result == AVAssetImageGeneratorFailed) {
-                                                 NSLog(@"Image Capture %i of %i Failed with error: %@", [imageSequence count], [times count],[error localizedFailureReason]);
+                                                 NSLog(@"Image Capture %i of %i Failed with error: %@", [_imageSequence count], [times count],[error localizedFailureReason]);
                                              }
                                              if (result == AVAssetImageGeneratorCancelled) {
                                                  NSLog(@"Canceled");
@@ -100,7 +91,7 @@
 
 -(void)cancel:(NSNotification*)notification
 {
-    [imageGenerator cancelAllCGImageGeneration];
+    [_imageGenerator cancelAllCGImageGeneration];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
 }
 
@@ -109,10 +100,10 @@
     [self startRecording];
     
     int added = 0;
-    for (id image in imageSequence){
+    for (id image in _imageSequence){
         [self writeSample:(CGImageRef)image];
         added++;
-        percentageDone = .8f + .2f * ((Float32)added / (Float32)[imageSequence count]);
+        _percentageDone = .8f + .2f * ((Float32)added / (Float32)[_imageSequence count]);
     }
     
     [self stopRecording];
@@ -121,7 +112,7 @@
 
 -(void) writeSample: (CGImageRef)image {
     
-    if (assetWriterInput.readyForMoreMediaData) {
+    if (_assetWriterInput.readyForMoreMediaData) {
         
 		// prepare the pixel buffer
 		CVPixelBufferRef pixelBuffer = NULL;
@@ -139,18 +130,18 @@
                                      &pixelBuffer);
         
 		// calculate the time
-		CFTimeInterval elapsedTime = fakeTimeElapsed;
+		CFTimeInterval elapsedTime = _fakeTimeElapsed;
 		CMTime presentationTime =  CMTimeMake (elapsedTime * FRAME_SCALE, FRAME_SCALE);
 
 		// write the sample
-		BOOL appended = [assetWriterPixelBufferAdaptor appendPixelBuffer:pixelBuffer withPresentationTime:presentationTime];
+		BOOL appended = [_assetWriterPixelBufferAdaptor appendPixelBuffer:pixelBuffer withPresentationTime:presentationTime];
         
         CFRelease(imageData);
         CVPixelBufferRelease(pixelBuffer);
         
-        fakeTimeElapsed += incrementTime;
+        _fakeTimeElapsed += _incrementTime;
 		if (appended) {
-            [delegate imageSequencerProgress:percentageDone];
+            [_delegate imageSequencerProgress:_percentageDone];
 		}
 	}
 }
@@ -160,8 +151,8 @@
 -(void) startRecording {
     RCFileHandler *fileHandler = [[RCToolbox sharedToolbox] fileHandler];
     
-    currentFileName = !currentFileName ? OUTPUT_FILE_NAME : currentFileName;
-	NSString *moviePath = [[fileHandler pathToDocumentsDirectory] stringByAppendingPathComponent:currentFileName];
+    _currentFileName = !_currentFileName ? k_exportedSequenceName : _currentFileName;
+	NSString *moviePath = [[fileHandler pathToDocumentsDirectory] stringByAppendingPathComponent:_currentFileName];
 	if ([[NSFileManager defaultManager] fileExistsAtPath:moviePath]) {
 		[[NSFileManager defaultManager] removeItemAtPath:moviePath error:nil];
 	}
@@ -170,45 +161,42 @@
 	NSURL *movieURL = [NSURL fileURLWithPath:moviePath];
 	NSError *movieError = nil;
 
-	assetWriter = [[AVAssetWriter alloc] initWithURL:movieURL
+	_assetWriter = [[AVAssetWriter alloc] initWithURL:movieURL
                                             fileType: AVFileTypeQuickTimeMovie
                                                error: &movieError];
+    
 	NSDictionary *assetWriterInputSettings = [NSDictionary dictionaryWithObjectsAndKeys:
 											  AVVideoCodecH264, AVVideoCodecKey,
 											  [NSNumber numberWithInt:FRAME_WIDTH], AVVideoWidthKey,
 											  [NSNumber numberWithInt:FRAME_HEIGHT], AVVideoHeightKey,
 											  nil];
-	assetWriterInput = [AVAssetWriterInput assetWriterInputWithMediaType: AVMediaTypeVideo
-														  outputSettings:assetWriterInputSettings];
-	assetWriterInput.expectsMediaDataInRealTime = YES;
-	[assetWriter addInput:assetWriterInput];
-	
+    
+	_assetWriterInput = [AVAssetWriterInput assetWriterInputWithMediaType: AVMediaTypeVideo outputSettings:assetWriterInputSettings];
+	_assetWriterInput.expectsMediaDataInRealTime = YES;
+	[_assetWriter addInput:_assetWriterInput];
 
-	assetWriterPixelBufferAdaptor = [[AVAssetWriterInputPixelBufferAdaptor  alloc]
-									 initWithAssetWriterInput:assetWriterInput
-									 sourcePixelBufferAttributes:nil];
-	[assetWriter startWriting];
+	_assetWriterPixelBufferAdaptor = [[AVAssetWriterInputPixelBufferAdaptor alloc] initWithAssetWriterInput:_assetWriterInput sourcePixelBufferAttributes:nil];
+	[_assetWriter startWriting];
 	
-	firstFrameWallClockTime = CFAbsoluteTimeGetCurrent();
-	[assetWriter startSessionAtSourceTime: CMTimeMake(0, FRAME_SCALE)];
+	_firstFrameWallClockTime = CFAbsoluteTimeGetCurrent();
+	[_assetWriter startSessionAtSourceTime: CMTimeMake(0, FRAME_SCALE)];
 	
 }
 
 -(void) stopRecording {
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
-	[assetWriter finishWriting];
+	[_assetWriter finishWriting];
     
-    assetWriter = nil;
-    imageSequence = nil;
+    _assetWriter = nil;
+    _imageSequence = nil;
     
-    if(delegate && [delegate respondsToSelector:@selector(exportedImageSequenceToFileName:)]) {
-        [delegate imageSequencerProgress:1.0f];
-        [delegate exportedImageSequenceToFileName:currentFileName];
+    if(_delegate && [_delegate respondsToSelector:@selector(exportedImageSequenceToFileName:)]) {
+        [_delegate imageSequencerProgress:1.0f];
+        [_delegate exportedImageSequenceToFileName:_currentFileName];
     }
     
-    currentFileName = nil;
-
+    _currentFileName = nil;
 }
 
 @end

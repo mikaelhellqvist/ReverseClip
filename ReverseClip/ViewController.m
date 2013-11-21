@@ -9,24 +9,32 @@
 #import "ViewController.h"
 #import "RCToolbox.h"
 
-#define EXPORT_NAME @"Exported.mov"
-
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
 
+#pragma mark - UI
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(movieIsExported)
+                                                 name:@"ExportedMovieNotification"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(imageSequenceIsExported)
+                                                 name:@"ExportedImageSequenceNotification"
+                                               object:nil];
+
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -34,42 +42,40 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-#pragma mark - Calls to the tools
-
-- (void) exportFinishedMovie {
-    
-    RCExporter *exporterTool = [[RCToolbox sharedToolbox] exporterTool];
-    RCComposer *compositionTool = [[RCToolbox sharedToolbox] compositionTool];
-    [exporterTool exportCompositionWithAsset:(AVURLAsset*)compositionTool.composition exportName:EXPORT_NAME isForImageSequence:NO];
-    
-}
-
--(void) preExportForImageSequence:(AVURLAsset *)_asset {
-    
-    RCComposer *compositionTool = [[RCToolbox sharedToolbox] compositionTool];
-    [compositionTool addToCompositionWithAsset:(AVURLAsset*)_asset timeRangeSpeed:kTimeRangeSlowMotion inSeconds:0.0 outSeconds:2.0 isForImageSequence:YES speed:kTimeRangeSlowMotion];
-    
-}
-
--(void) sendToCompositionWithAsset:(AVAsset *)_asset {
-    
-    RCComposer *compositionTool = [[RCToolbox sharedToolbox] compositionTool];
-    [compositionTool addToCompositionWithAsset:(AVURLAsset*)_asset timeRangeSpeed:kTimeRangeNormal inSeconds:0.0 outSeconds:2.0 isForImageSequence:NO speed:kTimeRangeSlowMotion];
-    
-}
-
-
--(void) createReverseClip {
-    RCFileHandler *filehandler = [[RCToolbox sharedToolbox] fileHandler];
-    AVURLAsset *myAsset = [filehandler getAssetURLFromBundleWithFileName:@"IMG_2262"];
-    [self preExportForImageSequence:myAsset];
-}
-
-
-#pragma mark - Buttons
-
+#pragma mark - Actions
 - (IBAction)startButtonPressed:(id)sender {
     [self createReverseClip];
 }
+
+#pragma mark - Reverse clip
+-(void) createReverseClip
+{
+    RCFileHandler *filehandler = [[RCToolbox sharedToolbox] fileHandler];
+    AVURLAsset *urlAsset = [filehandler getAssetURLFromBundleWithFileName:@"IMG_2262"];
+    [self exportReversedClip:urlAsset];
+}
+
+-(void) exportReversedClip:(AVURLAsset *)urlAsset
+{
+    Float64 assetDuration = CMTimeGetSeconds(urlAsset.duration);
+    RCComposer *compositionTool = [[RCToolbox sharedToolbox] compositionTool];
+    [compositionTool addToCompositionWithAsset:(AVURLAsset*)urlAsset inSeconds:0.0 outSeconds:assetDuration shouldBeReversed:YES];
+}
+
+#pragma mark - Notifications
+-(void)movieIsExported
+{
+    RCFileHandler *fileHandler = [[RCToolbox sharedToolbox] fileHandler];
+    AVURLAsset *urlAsset = [fileHandler getAssetURLFromFileName:k_exportedClipName];
+    NSLog(@"The movie has been exported. \n URLAsset:%@",urlAsset);
+}
+
+-(void)imageSequenceIsExported
+{
+    RCFileHandler *fileHandler = [[RCToolbox sharedToolbox] fileHandler];
+    AVURLAsset *urlAsset = [fileHandler getAssetURLFromFileName:k_exportedSequenceName];
+    NSLog(@"The image sequence has been exported. \n URLAsset:%@",urlAsset);
+}
+
 @end
 

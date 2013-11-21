@@ -5,23 +5,25 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
+@interface RCComposer : NSObject
 
-#import "Enums.h"
+@property AVMutableComposition *composition;
 
-@interface RCComposer : NSObject {
-
-    AVMutableComposition *composition;
-    AVMutableCompositionTrack *compositionVideoTrack;
-    
-}
-
-@property (nonatomic, retain) AVMutableComposition *composition;
-
--(void) addToCompositionWithAsset:(AVURLAsset*)_asset 
-                   timeRangeSpeed:(int)speed
+/**
+Add clip to a composition
+@param urlAsset
+ the @c AVURLAsset to the clip that should be added to the composition
+ @param inSeconds
+ @c Float64
+ @param outSeconds
+  @c Float64
+ @param shouldBeReversed
+ @c BOOL
+ */
+-(void) addToCompositionWithAsset:(AVURLAsset*)urlAsset
                         inSeconds:(Float64)inSec
                        outSeconds:(Float64)outSec
-               isForImageSequence:(BOOL)isTempForImageSequence
-                            speed:(int)_speed;
+                 shouldBeReversed:(BOOL)shouldBeReversed;
+
 
 @end

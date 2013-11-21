@@ -8,23 +8,11 @@
 
 @implementation RCExporter
 
--(id) init {
-    if((self = [super init])){
-        
-    }
-    return self;
-}
-
--(void)exportCompositionWithAsset:(AVURLAsset*)_asset 
-                       exportName:(NSString*)exportFileName
-               isForImageSequence:(BOOL)isTempForImageSequence{
-    
+-(void)exportCompositionWithAsset:(AVURLAsset*)urlAsset exportName:(NSString*)exportFileName shouldBeReversed:(BOOL)shouldBeReversed
+{
     currentFileExportName = exportFileName;
     
-    AVAssetExportSession *exportSession = [[AVAssetExportSession alloc] initWithAsset:_asset presetName:AVAssetExportPresetMediumQuality];
-    //    AVAssetExportSession *exportSession = [[AVAssetExportSession alloc] initWithAsset:composition presetName:AVAssetExportPresetPassthrough];
-    
-	NSLog (@"can export: %@", exportSession.supportedFileTypes);
+    AVAssetExportSession *exportSession = [[AVAssetExportSession alloc] initWithAsset:urlAsset presetName:AVAssetExportPresetMediumQuality];
     
 	NSArray *dirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsDirectoryPath = [dirs objectAtIndex:0];
@@ -34,21 +22,23 @@
 	NSURL *exportURL = [NSURL fileURLWithPath:exportPath];
     
 	exportSession.outputURL = exportURL;
-	exportSession.outputFileType = AVFileTypeQuickTimeMovie;//@"com.apple.quicktime-movie";
+	exportSession.outputFileType = AVFileTypeQuickTimeMovie;
     
 	[exportSession exportAsynchronouslyWithCompletionHandler:^{
-		NSLog (@"i is in your block, exportin. status is %d",
-			   exportSession.status);
+		NSLog (@"i is in your block, exportin. status is %d",exportSession.status);
+        
 		switch (exportSession.status) {
 			case AVAssetExportSessionStatusFailed:
+                NSLog(@"Export failed");
 			case AVAssetExportSessionStatusCompleted: {
-				[self performSelectorOnMainThread:@selector (exportDone:)
+				[self performSelectorOnMainThread:@selector(exportDone:)
 									   withObject:nil
 									waitUntilDone:NO];
                 
-                if (isTempForImageSequence) {
+                if (shouldBeReversed) {
                     RCImageSequencer *imageSequencerTool = [[RCToolbox sharedToolbox] imageSequencerTool];
-                    [imageSequencerTool createImageSequenceWithAsset:(AVURLAsset*)_asset];
+                    [imageSequencerTool setDelegate:(id)self];
+                    [imageSequencerTool createImageSequenceWithAsset:(AVURLAsset*)urlAsset];
                 }
 				break;
 			}
@@ -56,13 +46,19 @@
 	}];
 }
 
--(void) exportDone: (NSObject*) userInfo {
-    NSLog(@"Movie is exported");
- 
-    RCFileHandler *fileHandler = [[RCToolbox sharedToolbox] fileHandler];
-    [fileHandler getAssetURLFromFileName:currentFileExportName];
+-(void) exportDone:(NSObject*)userInfo {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ExportedMovieNotification" object:self];
 }
 
+-(void)imageSequencerProgress:(Float64)percentage
+{
+    NSLog(@"percentage %f",percentage);
+}
 
+-(void)exportedImageSequenceToFileName:(NSString*)fileName
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ExportedImageSequenceNotification" object:self];
+    NSLog(@"Exported image sequence to %@",fileName);
+}
 
 @end

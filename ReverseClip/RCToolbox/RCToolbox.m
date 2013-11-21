@@ -8,14 +8,6 @@
 
 @implementation RCToolbox
 
-
-@synthesize exporterTool;
-@synthesize imageSequencerTool;
-@synthesize compositionTool;
-@synthesize imageSequenceCompositionTool;
-
-@synthesize fileHandler;
-
 + (RCToolbox *) sharedToolbox
 {
     static RCToolbox *sharedToolbox = nil;
@@ -28,11 +20,10 @@
 
 -(id) init {
     if((self = [super init])){
-        self.exporterTool = [[RCExporter alloc]init];
-        self.imageSequencerTool = [[RCImageSequencer alloc]init];
-        self.compositionTool = [[RCComposer alloc]init];
-        
-        self.fileHandler = [[RCFileHandler alloc]init];
+        _exporterTool = [[RCExporter alloc]init];
+        _imageSequencerTool = [[RCImageSequencer alloc]init];
+        _compositionTool = [[RCComposer alloc]init];
+        _fileHandler = [[RCFileHandler alloc]init];
     }
     return self;
 }

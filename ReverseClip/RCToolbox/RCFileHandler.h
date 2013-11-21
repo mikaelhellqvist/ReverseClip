@@ -7,13 +7,28 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
-@interface RCFileHandler : NSObject {
-    
-}
+@interface RCFileHandler : NSObject
 
-
--(NSString*) pathToDocumentsDirectory;
--(AVURLAsset*) getAssetURLFromFileName:(NSString*)fileName;
+/**
+ The Path to the documents directory
+ @return NSString
+ */
+-(NSString*)pathToDocumentsDirectory;
+/**
+ Search in the documents directory for the provided fileName
+ @param fileName
+ The file name as a @c NSString
+ @return
+ AVURLAsset
+ */
+-(AVURLAsset*)getAssetURLFromFileName:(NSString*)fileName;
+/**
+ Search in the bundle for the provided fileName
+ @param fileName
+ The file name as a @c NSString
+ @return
+ AVURLAsset
+ */
 -(AVURLAsset*)getAssetURLFromBundleWithFileName:(NSString*)fileName;
 
 @end

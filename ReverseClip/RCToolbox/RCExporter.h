@@ -6,15 +6,14 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface RCExporter : NSObject {
+#import "RCImageSequencer.h"
 
+@interface RCExporter : NSObject<ImageSequencerDelegate> {
     NSString *currentFileExportName;
 }
 
--(void)exportCompositionWithAsset:(AVURLAsset*)_asset 
+-(void)exportCompositionWithAsset:(AVURLAsset*)urlAsset
                        exportName:(NSString*)exportFileName
-               isForImageSequence:(BOOL)isTempForImageSequence;
-
--(void) exportDone: (NSObject*) userInfo;
+               shouldBeReversed:(BOOL)shouldBeReversed;
 
 @end
