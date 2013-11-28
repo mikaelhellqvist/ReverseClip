@@ -43,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A31CB15184733E4006091F7 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		2A676ECE15E18CDF00F3E8BD /* ReverseClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReverseClip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A676ED215E18CDF00F3E8BD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2A676ED415E18CDF00F3E8BD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,7 +63,6 @@
 		2A676EFA15E18CE000F3E8BD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2A676EFC15E18CE000F3E8BD /* ReverseClipTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReverseClipTests.h; sourceTree = "<group>"; };
 		2A676EFD15E18CE000F3E8BD /* ReverseClipTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReverseClipTests.m; sourceTree = "<group>"; };
-		2A676F0815E18CF100F3E8BD /* Enums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
 		2A676F0915E18CF100F3E8BD /* RCComposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCComposer.h; sourceTree = "<group>"; };
 		2A676F0A15E18CF100F3E8BD /* RCComposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCComposer.m; sourceTree = "<group>"; };
 		2A676F0B15E18CF100F3E8BD /* RCExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCExporter.h; sourceTree = "<group>"; };
@@ -189,7 +189,7 @@
 		2A676F0715E18CF100F3E8BD /* RCToolbox */ = {
 			isa = PBXGroup;
 			children = (
-				2A676F0815E18CF100F3E8BD /* Enums.h */,
+				2A31CB15184733E4006091F7 /* Constants.h */,
 				2A676F0915E18CF100F3E8BD /* RCComposer.h */,
 				2A676F0A15E18CF100F3E8BD /* RCComposer.m */,
 				2A676F0B15E18CF100F3E8BD /* RCExporter.h */,
