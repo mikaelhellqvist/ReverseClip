@@ -4,8 +4,10 @@
 // Mikael Hellqvist
 
 #import "RCImageSequencer.h"
+
 #import <CoreMedia/CoreMedia.h>
 #import "RCToolbox.h"
+#import "RCConstants.h"
 
 #define FRAME_WIDTH 640
 #define FRAME_HEIGHT 360

@@ -43,7 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2A31CB15184733E4006091F7 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		2A31CB17184734A0006091F7 /* RCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCConstants.h; sourceTree = "<group>"; };
 		2A676ECE15E18CDF00F3E8BD /* ReverseClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReverseClip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A676ED215E18CDF00F3E8BD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2A676ED415E18CDF00F3E8BD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -189,7 +189,7 @@
 		2A676F0715E18CF100F3E8BD /* RCToolbox */ = {
 			isa = PBXGroup;
 			children = (
-				2A31CB15184733E4006091F7 /* Constants.h */,
+				2A31CB17184734A0006091F7 /* RCConstants.h */,
 				2A676F0915E18CF100F3E8BD /* RCComposer.h */,
 				2A676F0A15E18CF100F3E8BD /* RCComposer.m */,
 				2A676F0B15E18CF100F3E8BD /* RCExporter.h */,
