@@ -184,21 +184,17 @@
 	[_assetWriter startSessionAtSourceTime: CMTimeMake(0, FRAME_SCALE)];
 	
 }
-
 -(void) stopRecording {
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
-	[_assetWriter finishWriting];
-    
-    _assetWriter = nil;
-    _imageSequence = nil;
-    
-    if(_delegate && [_delegate respondsToSelector:@selector(exportedImageSequenceToFileName:)]) {
-        [_delegate imageSequencerProgress:1.0f];
-        [_delegate exportedImageSequenceToFileName:_currentFileName];
-    }
-    
+    [_assetWriter finishWritingWithCompletionHandler:^void{
+        _assetWriter = nil;
+        _imageSequence = nil;
+        if(_delegate && [_delegate respondsToSelector:@selector(exportedImageSequenceToFileName:)]) {
+             [_delegate imageSequencerProgress:1.0f];
+            [_delegate exportedImageSequenceToFileName:_currentFileName];
+        }
     _currentFileName = nil;
+    }];
 }
 
 @end
